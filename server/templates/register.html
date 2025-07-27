@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            <!--background-image: url('https://wallpapers.com/images/hd/light-color-background-vmkuihk29pi1xq65.jpg'); -->
+             background-image: url('https://wallpapers.com/images/hd/light-color-background-vmkuihk29pi1xq65.jpg');
+            background: #e6f0ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            <!--background: white;-->
+            padding: 30px;
+            <!--border-radius: 10px;-->
+           <!-- box-shadow: 0px 0px 10px gray;-->
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background:LightGreen
+;
+            color: white
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background:LightGreen
+;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Register</h2>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password1" placeholder="Password" required>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+        <p>Already have an account? </p><a href="{% url 'login_page' %}"> Login</a>
+    </form>
+</body>
+</html>

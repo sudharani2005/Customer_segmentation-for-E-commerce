@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('https://wallpapers.com/images/hd/light-color-background-vmkuihk29pi1xq65.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        form {
+            <!--background: rgba(255, 255, 255, 0.9); /* Semi-transparent white box */-->
+            padding: 30px;
+            <!-- border-radius: 10px;-->
+            <!-- box-shadow: 0px 0px 10px gray;-->
+            width: 300px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+           <!-- color: #007bff;-->
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+   {% if error %}
+    <p style="color:red; font-weight:bold;">{{error}}</p>
+    {% endif %} 
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p>Don't have an account?</p>
+        <a href="{% url 'register_page' %}">Register</a>
+    </form>
+</div>
+</body>
+</html>

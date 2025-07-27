@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Segmentation Result</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/premium-vector/online-shopping-digital-technology-with-icon-blue-background-ecommerce-online-store-marketing_252172-219.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
+
+        h1, h2 {
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        img {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            max-height: 480px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+        }
+
+        table {
+            width: 95%;
+            border-collapse: collapse;
+            margin: 15px auto;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        td {
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Customer Segmentation Result</h1>
+
+    <div class="content">
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Cluster Plot">
+    </div>
+         <div>
+        <h2>🧠 Cluster-wise Gender Summary with Purchased Items</h2>
+        <table>
+            <tr>
+                <th>Cluster</th>
+                <th>Gender</th>
+                <th>Avg Age</th>
+                <th>Frequently Purchased Items</th>
+            </tr>
+            {% for row in gender_summary %}
+                <tr>
+                    <td>{{ row.Cluster }}</td>
+                    <td>{{ row.Gender }}</td>
+                    <td>{{ row.Avg_Age }}</td>
+                    <td>
+                        {% if row.Top_Items == 'N/A' %}
+                            N/A
+                        {% else %}
+                            {{ row.Top_Items|join:', ' }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'home' %}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+            🔁 Back to Upload Another File
+        </a> 
+    </div><br>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'logout' %}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;"> Logout</a>
+    </div>
+
+</body>
+</html>
