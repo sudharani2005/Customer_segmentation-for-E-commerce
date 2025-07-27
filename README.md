@@ -45,5 +45,8 @@ customer_segmentation/
 
 └── README.md
 
+## 💡 Real-World Use
+This project helps businesses segment customers for targeted promotions, reduce churn with predictive flags, and recommend products based on behavior — enabling smarter, data-driven marketing decisions in e-commerce.
+
 
 
