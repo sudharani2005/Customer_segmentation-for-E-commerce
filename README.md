@@ -28,16 +28,21 @@ A full-stack Django web app that segments customers using PCA and K-Means, helpi
 
 ## 📁 Project Structure
 customer_segmentation/
-│
+
 ├── segmentation_app/ # Core Django app
 
 ├── templates/ # HTML templates
 
 ├── static/ # CSS, JS
+
 ├── media/ # Uploaded files
+
 ├── db.sqlite3 # Default DB
+
 ├── manage.py
+
 ├── requirements.txt
+
 └── README.md
 
 
